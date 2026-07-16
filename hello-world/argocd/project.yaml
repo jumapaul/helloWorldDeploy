@@ -6,7 +6,7 @@ metadata:
 spec:
   description: Hello world project
   sourceRepos:
-    - https://github.com/jumapaul/helloWorld
+    - https://github.com/jumapaul/helloWorldDeploy
   destinations:
     - namespace: argocd
       server: https://kubernetes.default.svc

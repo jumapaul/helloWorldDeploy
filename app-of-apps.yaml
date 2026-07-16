@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/jumapaul/helloWorld
+    repoURL: https://github.com/jumapaul/helloWorldDeploy
     targetRevision: master
     path: ./app-of-apps
   destination:
