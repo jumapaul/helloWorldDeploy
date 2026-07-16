@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: hello-world-2
+  namespace: argocd
+spec:
+  description: Hello world project
+  sourceRepos:
+    - https://github.com/jumapaul/helloWorld
+  destinations:
+    - namespace: argocd
+      server: https://kubernetes.default.svc

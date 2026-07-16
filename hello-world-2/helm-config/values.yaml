@@ -1,0 +1,7 @@
+replicaCount: 2
+image:
+  repository: jumapaul/hello-world
+  pullPolicy: IfNotPresent
+  tag: "latest"
+ingress:
+  host: "hello-world.com"

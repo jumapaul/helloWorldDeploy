@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "hello-world-2"
+  labels:
+    app: hello-world-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world-2
+  template:
+    metadata:
+      labels:
+        app: hello-world-2
+    spec:
+      containers:
+        - name: "hello-world-2"
+          image: "jumapaul/hello-world-2:latest"
+          ports:
+            - containerPort: 8082
+
