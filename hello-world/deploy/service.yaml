@@ -9,4 +9,5 @@ spec:
   ports:
     - protocol: TCP
       port: 80  # Port ingress targets
-      targetPort: 30134
+      targetPort: 8080
+      nodePort: 30134
