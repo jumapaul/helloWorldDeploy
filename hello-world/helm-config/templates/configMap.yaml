@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: db-config
 data:
-  DB_URL: "jdbc:postgresql://localhost:5432/rewards"
+  DB_URL: "jdbc:postgresql://host.minikube.internal:5432/rewards"
