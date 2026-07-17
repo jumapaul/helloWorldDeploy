@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/jumapaul/helloWorldDeploy
     targetRevision: master
-    path: ./hello-world-2/deploy
+    path: ./hello-world-2/helm-config
   destination:
     server: https://kubernetes.default.svc
     namespace: test

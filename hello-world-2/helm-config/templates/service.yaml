@@ -5,8 +5,9 @@ metadata:
 spec:
   selector:
     app: hello-world
-  type: ClusterIP
+  type: NodePort
   ports:
     - protocol: TCP
       port: 80  # Port ingress targets
       targetPort: 8080
+      nodePort: 30133
