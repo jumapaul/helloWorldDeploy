@@ -7,3 +7,6 @@ spring:
     password: ${DB_PASSWORD}
     username: ${DB_USERNAME}
     driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create

@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: db-config
 data:
-  DB_URL: "jdbc:postgresql://192.168.49.1:5432/rewards"
+  DB_URL: "jdbc:postgresql://aws-1-eu-central-1.pooler.supabase.com:5432/postgres"

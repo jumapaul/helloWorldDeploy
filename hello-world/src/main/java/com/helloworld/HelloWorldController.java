@@ -3,6 +3,7 @@ package com.helloworld;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +24,7 @@ public class HelloWorldController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Points>> getAll() {
+    public ResponseEntity<List<Users>> getAll() {
         return ResponseEntity.ok(helloWorldRepository.findAll());
     }
 }
