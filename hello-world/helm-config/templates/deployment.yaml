@@ -23,7 +23,7 @@ spec:
             - name: DB_URL
               valueFrom:
                 configMapKeyRef:
-                  name: db_config
+                  name: db-config
                   key: DB_URL
             - name: DB_USERNAME
               valueFrom:
