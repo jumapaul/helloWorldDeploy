@@ -1,0 +1,5 @@
+{{- include "common-helm-chart.deployment" . }}
+
+--
+
+{{- include "common-helm-chart.service" . }}

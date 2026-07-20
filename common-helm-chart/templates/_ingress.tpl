@@ -1,3 +1,4 @@
+{{- define "common-helm-chart.ingress" -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -9,10 +10,11 @@ spec:
     - host: {{ .Values.ingress.host | default "hello-world.local" }}
       http:
         paths:
-          - path: /
-            pathType: ImplementationSpecific
+          - path: {{ .Values.ingress.path | default "/" }}
+            pathType: {{ .Values.ingress.pathType | default "ImplementationSpecific" }}
             backend:
               service:
                 name: {{ .Release.Name }}-service
                 port:
-                  number: 80
+                  number: {{ .Values.servicePort | default 80 }}
+{{- end -}}

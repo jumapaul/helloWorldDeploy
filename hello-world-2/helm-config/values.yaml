@@ -1,7 +1,9 @@
 replicaCount: 1
+containerPort: 8082
+targetPort: 8082
+servicePort: 80
+serviceType: NodePort
 image:
   repository: jumapaul/hello-world-2
   pullPolicy: IfNotPresent
   tag: "latest"
-ingress:
-  host: "hello-world.com"

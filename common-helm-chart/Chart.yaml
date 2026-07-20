@@ -1,0 +1,9 @@
+apiVersion: v2
+name: common-helm-chart
+description: A helm chart to deploy mutliple services in K8s.
+
+type: library
+
+version: 0.1.0
+
+appVersion: "1.16.0"
