@@ -21,7 +21,7 @@ env:
 image:
   repository: jumapaul/hello-world
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: "c9d8a3d"
 ingress:
   host: "hello-world.com"
 secretVolume:
