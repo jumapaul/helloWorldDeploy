@@ -40,25 +40,25 @@ jobs:
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/hello-world-2:${{ steps.vars.outputs.sha_short }} .
       - name: Push Docker image to docker hub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/hello-world-2:${{ steps.vars.outputs.sha_short }}
-update-manifest:
-  name: Update image tag in deploy repo
-  needs: build
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout deploy repo
-      uses: actions/checkout@v4
-      with:
-        repository: jumapaul/helloWorldDeploy
-        token: ${{ secrets.DEPLOY_REPO_TOKEN }}
+  update-manifest:
+    name: Update image tag in deploy repo
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout deploy repo
+        uses: actions/checkout@v4
+        with:
+          repository: jumapaul/helloWorldDeploy
+          token: ${{ secrets.DEPLOY_REPO_TOKEN }}
 
-    - name: Update image tag
-      run: |
-        sed -i "s/tag: .*/tag: \"${{ needs.build.outputs.image_tag }}\"/" hello-world-2/helm-config/values.yaml
+      - name: Update image tag
+        run: |
+          sed -i "s/tag: .*/tag: \"${{ needs.build.outputs.image_tag }}\"/" hello-world-2/helm-config/values.yaml
 
-    - name: Commit and push
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add hello-world-2/helm-config/values.yaml
-        git commit -m "chore: bump hello-world-2 image to ${{ needs.build.outputs.image_tag }}"
-        git push
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add hello-world-2/helm-config/values.yaml
+          git commit -m "chore: bump hello-world-2 image to ${{ needs.build.outputs.image_tag }}"
+          git push
