@@ -6,4 +6,4 @@ serviceType: NodePort
 image:
   repository: jumapaul/hello-world-2
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: "10983a9"
