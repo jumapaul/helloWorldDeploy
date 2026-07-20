@@ -45,11 +45,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout deploy repo
+      - name: Checkout source code
         uses: actions/checkout@v4
         with:
-          repository: jumapaul/helloWorldDeploy
-          token: ${{ secrets.DEPLOY_REPO_TOKEN }}
+          ref: master
 
       - name: Update image tag
         run: |
