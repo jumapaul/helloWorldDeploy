@@ -10,3 +10,24 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
+  health:
+    db:
+      enabled: false
+info:
+  app:
+    name: Hello world demo
+    description: Hello world demo application
+    version: 1.0.0
+    author: Juma Paul
+    docs: http://localhost:123/docs

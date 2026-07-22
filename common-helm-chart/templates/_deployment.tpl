@@ -1,4 +1,3 @@
-
 {{- define "common-helm-chart.deployment" -}}
 apiVersion: apps/v1
 kind: Deployment
@@ -21,6 +20,21 @@ spec:
           image: {{ .Values.image.repository}}:{{ .Values.image.tag }}
           ports:
             - containerPort: {{ .Values.containerPort }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.probes.liveness.path }}
+              port: {{ .Values.probes.liveness.port }}
+            initialDelaySeconds: {{ .Values.probes.liveness.initialDelaySeconds }}
+            periodSeconds: {{ .Values.probes.liveness.periodSeconds }}
+            failureThreshold: {{ .Values.probes.liveness.failureThreshold }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.probes.readiness.path }}
+              port: {{ .Values.probes.readiness.port }}
+            initialDelaySeconds: {{ .Values.probes.readiness.initialDelaySeconds }}
+            periodSeconds: {{ .Values.probes.readiness.periodSeconds }}
+            failureThreshold: {{ .Values.probes.readiness.failureThreshold }}
+          {{- if .Values.env }}
           env:
            {{- if .Values.configMap }}
            {{- range $key, $value := .Values.configMap.data }}
@@ -36,6 +50,7 @@ spec:
               valueFrom:
                 {{- toYaml .valueFrom | nindent 16 }}
             {{- end }}
+           {{- end }}
           {{- if .Values.secretVolume }}
           volumeMounts:
             - name: {{ .Values.secretVolume.name }}

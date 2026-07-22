@@ -27,3 +27,15 @@ serviceType: ClusterIP
 configMap:
   data:
     DB_URL: "jdbc:postgresql://aws-1-eu-central-1.pooler.supabase.com:5432/postgres"
+probes:
+  liveness:
+    path: /actuator/health/liveness
+    port: 8080
+    initialDelaySeconds: 60
+    periodSeconds: 10
+    failureThreshold: 3
+  readiness:
+    path: /actuator/health/readiness
+    port: 8080
+    periodSeconds: 10
+    failureThreshold: 3

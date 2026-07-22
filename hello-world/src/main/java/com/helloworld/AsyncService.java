@@ -1,11 +1,14 @@
 package com.helloworld;
 
+import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
+import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.CompletableFuture;
 
 @Service
+@Endpoint(id = "async")
 public class AsyncService {
 
     @Async
@@ -23,5 +26,10 @@ public class AsyncService {
 
             return result;
         });
+    }
+
+    @ReadOperation
+    public void helloWorld(){
+        System.out.println("Hello world my guy");
     }
 }
