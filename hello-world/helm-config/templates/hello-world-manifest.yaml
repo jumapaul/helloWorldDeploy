@@ -1,13 +1,13 @@
 {{- include "common-helm-chart.deployment" . }}
 
---
+---
 
 {{- include "common-helm-chart.service" . }}
 
---
+---
 
 {{- include "common-helm-chart.config-map" . }}
 
---
+---
 
 {{- include "common-helm-chart.ingress" . }}

@@ -3,11 +3,6 @@ containerPort: 8080
 targetPort: 8080
 servicePort: 80
 env:
-  - name: DB_URL
-    valueFrom:
-      configMapKeyRef:
-        name: db-config
-        key: DB_URL
   - name: DB_USERNAME
     valueFrom:
       secretKeyRef:

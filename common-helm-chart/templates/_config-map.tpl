@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Chart.Name }}-config-map
+  name: {{ include "common-helm-chart.configMapName" . }}
 data:
    {{- range $key, $value := .Values.configMap.data}}
    {{ $key }}: {{ $value | quote }}

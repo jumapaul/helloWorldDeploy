@@ -22,7 +22,16 @@ spec:
           ports:
             - containerPort: {{ .Values.containerPort }}
           env:
-            {{- range .Values.env }}
+           {{- if .Values.configMap }}
+           {{- range $key, $value := .Values.configMap.data }}
+            - name: {{ $key }}
+              valueFrom:
+                configMapKeyRef:
+                    name: {{ include "common-helm-chart.configMapName" $ }}
+                    key: {{ $key }}
+           {{- end }}
+           {{- end }}
+           {{- range .Values.env }}
             - name: {{ .name }}
               valueFrom:
                 {{- toYaml .valueFrom | nindent 16 }}
